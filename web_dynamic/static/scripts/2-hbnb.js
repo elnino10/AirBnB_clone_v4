@@ -1,15 +1,16 @@
 // script that executes when the DOM is ready
 // and adds event listeners on each input checkbox
 
-$.get('http://0.0.0.0:5001/api/v1/status/', function (data, textStatus) {
-    if (textStatus == 'success') {
-        $('div#api_status').addClass('available')
-    } else {
-        $('div#api_status').removeClass('available')
-    }
-});
 
 $(document).ready(function () {
+    $.get('http://0.0.0.0:5001/api/v1/status/', function (data) {
+        console.log(data)
+        // if (data.status == 'OK') {
+        //     $('div#api_status').addClass('available')
+        // } else {
+        //     $('div#api_status').removeClass('available')
+        // }
+    });
     let amenity_dict = {}
     $("input:checkbox").change(function () {
         let id_var = $('input:checkbox').attr('data_id');
@@ -21,6 +22,6 @@ $(document).ready(function () {
     });
     $('DIV.amenities h4').empty();
     for (let id in amenity_dict) {
-        $('DIV.amenities h4').append('<li>' + id + '</li>');
+        $('DIV.amenities h4').text(id);
     }
 });
