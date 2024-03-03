@@ -46,4 +46,8 @@ def hbnb():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5001)
+    from os import environ
+
+    HOST = environ.get("HBNB_MYSQL_HOST", "0.0.0.0")
+    PORT = environ.get("HBNB_API_PORT", 5000)
+    app.run(host=HOST, port=PORT)
