@@ -16,13 +16,13 @@ app = Flask(__name__)
 
 @app.teardown_appcontext
 def close_db(error):
-    """ Remove the current SQLAlchemy Session """
+    """Remove the current SQLAlchemy Session"""
     storage.close()
 
 
-@app.route('/1-hbnb/', strict_slashes=False)
+@app.route("/3-hbnb/", strict_slashes=False)
 def hbnb():
-    """ HBNB is alive! """
+    """HBNB is alive!"""
     states = storage.all(State).values()
     states = sorted(states, key=lambda k: k.name)
     st_ct = []
@@ -37,7 +37,7 @@ def hbnb():
     places = sorted(places, key=lambda k: k.name)
 
     return render_template(
-        "1-hbnb.html",
+        "2-hbnb.html",
         states=st_ct,
         amenities=amenities,
         places=places,
