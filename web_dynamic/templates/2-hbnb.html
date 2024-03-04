@@ -65,12 +65,10 @@
               {% for amenity in amenities %}
               <li>
                 <input
-                  style="margin-right: 10px"
+                  data-id="{{ amenity.id }}"
+                  data-name="{{ amenity.name }}"
                   type="checkbox"
-                  data-id="{{amenity_id}}"
-                  data-name="{{amenity_name}}"
-                />
-                {{ amenity.name }}
+                />{{ amenity.name }}
               </li>
               {% endfor %}
             </ul>

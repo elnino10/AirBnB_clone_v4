@@ -16,6 +16,7 @@ $(document).ready(function () {
     const amenitiesText = selectedAmenities.join(", ");
     $("div.amenities h4").text(amenitiesText);
   });
+  
   $.get("http://localhost:5001/api/v1/status/", function (data) {
     console.log(data);
     if (data.status === "OK") {
