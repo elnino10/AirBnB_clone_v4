@@ -9,7 +9,7 @@ $(document).ready(function () {
       $("div#api_status").removeClass("available");
     }
   });
-
+  
   let amenityDict = {};
   $("input:checkbox").change(function () {
     let idVar = $(this).attr("data-id");
@@ -36,7 +36,7 @@ $(document).ready(function () {
       "Content-Type": "application/json",
     },
     success: function (data) {
-      for (let place in data) {
+      for (let place of data) {
         $("section.places").append(
           `<article>
             <div class="title_box">

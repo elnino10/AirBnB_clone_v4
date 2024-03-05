@@ -1,11 +1,14 @@
 #!/usr/bin/python3
 """ Starts a Flash Web Application """
+import uuid
+
+from flask import Flask, render_template
+
 from models import storage
-from models.state import State
 from models.amenity import Amenity
 from models.place import Place
-from flask import Flask, render_template
-import uuid
+from models.state import State
+
 app = Flask(__name__)
 # app.jinja_env.trim_blocks = True
 # app.jinja_env.lstrip_blocks = True
@@ -41,5 +44,8 @@ def hbnb():
 
 
 if __name__ == "__main__":
-    """ Main Function """
-    app.run(host='0.0.0.0', port=5001)
+    from os import environ
+
+    HOST = environ.get("HBNB_MYSQL_HOST", "0.0.0.0")
+    PORT = environ.get("HBNB_API_PORT", 5000)
+    app.run(host=HOST, port=PORT)
