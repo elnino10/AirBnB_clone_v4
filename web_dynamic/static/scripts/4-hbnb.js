@@ -37,7 +37,7 @@ $(document).ready(function () {
       "Content-Type": "application/json",
     },
     success: function (data) {
-      for (let place in data) {
+      for (let place of data) {
         $("section.places").append(
           `<article>
             <div class="title_box">
@@ -61,7 +61,6 @@ $(document).ready(function () {
 
   // new POST request when button clicked
   $("section.filters button").click(function () {
-    console.log("clicked!!!");
     $.ajax({
       url: "http://localhost:5001/api/v1/places_search/",
       type: "POST",
@@ -72,10 +71,10 @@ $(document).ready(function () {
       success: function (data) {
         $("section.places").empty();
         $("section.places").append("<h1>Places</h1>");
-        for (const place in data) {
+        for (const place of data) {
           $("section.places").append(
             `<article>
-              <div class="title">
+              <div class="title_box">
                 <h2>${place.name}</h2>
                 <div class="price_by_night">$${place.price_by_night}</div>
               </div>
