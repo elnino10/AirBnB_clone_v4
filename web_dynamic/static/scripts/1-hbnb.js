@@ -2,20 +2,21 @@
 // and adds event listeners on each input checkbox
 
 $(document).ready(function () {
-    const amenityDict = {};
-    $("input:checkbox").change(function () {
-        const idVar = $(this).attr('data-id');
-        const nameVar = $(this).attr('data-name');
-        if ($(this).is(':checked')) {
-            amenityDict[idVar] = nameVar;
-        } else {
-            delete amenityDict[idVar];
-        }
-    });
-    $('DIV.amenities h4').empty();
-    for (let id in amenityDict) {
-        $('DIV.amenities h4').each(function () {
-            $('DIV.amenities h4').text(amenityDict[id]);
-        });
+  let amenityDict = {};
+  $("input:checkbox").change(function () {
+    let idVar = $(this).attr("data-id");
+    let nameVar = $(this).attr("data-name");
+    if ($(this).is(":checked")) {
+      amenityDict[idVar] = nameVar;
+    } else {
+      delete amenityDict[idVar];
     }
+    $("DIV.amenities h4").empty();
+    let list = Object.values(amenityDict).join(", ");
+    if (list) {
+      $("DIV.amenities h4").text(list);
+    } else {
+      $("DIV.amenities h4").html(`&nbsp;`);
+    }
+  });
 });

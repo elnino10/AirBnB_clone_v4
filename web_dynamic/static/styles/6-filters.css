@@ -23,6 +23,7 @@ button:hover {
 }
 .filters div {
     display: inline-grid;
+    
 }
 .filters h2 {
     margin-left: 15%;
@@ -34,12 +35,18 @@ button:hover {
     margin-left: 15%;
     margin-bottom: 0;
     font-weight: 600;
+    width: 100%;
 }
 .filters h4 {
     margin-left: 15%;
     margin-top: 0;
     font-weight: 400;
     font-size: 14px;
+    width: 250px;
+    height: 17px;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 .locations {
     height: 100%;

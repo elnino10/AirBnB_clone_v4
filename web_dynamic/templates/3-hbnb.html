@@ -67,10 +67,10 @@
                 <input
                   style="margin-right: 10px"
                   type="checkbox"
-                  data-id="{{amenity_id}}"
-                  data-name="{{amenity_name}}"
+                  data-id="{{ amenity.id }}"
+                  data-name="{{ amenity.name }}"
                 />
-                {{ amenity.name }}
+                {{amenity.name}}
               </li>
               {% endfor %}
             </ul>
